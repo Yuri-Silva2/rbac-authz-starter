@@ -30,7 +30,7 @@ Adicione a dependência na aplicação consumidora:
 <dependency>
     <groupId>dev.yuri</groupId>
     <artifactId>rbac-authz-spring-boot-starter</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
 </dependency>
 ```
 
