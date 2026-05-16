@@ -1,0 +1,4 @@
+dev.yuri.authzstarter.config.CacheConfiguration
+dev.yuri.authzstarter.config.AuthzRedisAutoConfiguration
+dev.yuri.authzstarter.config.AuthzAutoConfiguration
+dev.yuri.authzstarter.config.AuthzRabbitAutoConfiguration
