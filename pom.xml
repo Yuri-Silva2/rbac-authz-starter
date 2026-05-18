@@ -8,12 +8,12 @@
         <version>4.0.1</version>
         <relativePath/>
     </parent>
-    <groupId>dev.yuri</groupId>
+    <groupId>io.github.yuri-silva2</groupId>
     <artifactId>rbac-authz-spring-boot-starter</artifactId>
     <version>0.0.1</version>
     <name>RBAC Authz Spring Boot Starter</name>
     <description>Small multi-tenant RBAC authorization starter for Spring Boot applications.</description>
-    <url>https://github.com/yuri/rbac-authz-spring-boot-starter</url>
+    <url>https://github.com/yuri-silva2/rbac-authz-spring-boot-starter</url>
     <licenses>
         <license>
             <name>MIT License</name>
@@ -26,10 +26,10 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:https://github.com/yuri/rbac-authz-spring-boot-starter.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/yuri/rbac-authz-spring-boot-starter.git</developerConnection>
+        <connection>scm:git:https://github.com/yuri-silva2/rbac-authz-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/yuri-silva2/rbac-authz-spring-boot-starter.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/yuri/rbac-authz-spring-boot-starter</url>
+        <url>https://github.com/yuri-silva2/rbac-authz-spring-boot-starter</url>
     </scm>
     <properties>
         <java.version>21</java.version>
@@ -74,5 +74,63 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.7</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.8.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
