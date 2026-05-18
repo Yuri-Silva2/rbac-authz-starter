@@ -34,12 +34,6 @@ Adicione a dependência na aplicação consumidora:
 </dependency>
 ```
 
-Enquanto a versão estiver como `SNAPSHOT`, instale localmente se necessário:
-
-```bash
-./mvnw clean install
-```
-
 ## Uso básico
 
 Implemente `PermissionSnapshotLoader` na aplicação que usa o starter:
