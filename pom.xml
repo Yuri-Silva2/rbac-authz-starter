@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.github.yuri-silva2</groupId>
     <artifactId>rbac-authz-spring-boot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
     <name>RBAC Authz Spring Boot Starter</name>
     <description>Small multi-tenant RBAC authorization starter for Spring Boot applications.</description>
     <url>https://github.com/yuri-silva2/rbac-authz-spring-boot-starter</url>

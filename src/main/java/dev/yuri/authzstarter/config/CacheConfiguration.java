@@ -11,9 +11,18 @@ import dev.yuri.authzstarter.cache.PermissionCache;
 import dev.yuri.authzstarter.cache.PermissionCacheKey;
 import dev.yuri.authzstarter.cache.PermissionSet;
 
+/**
+ * Auto-configuration for local permission caching.
+ */
 @AutoConfiguration
 @EnableConfigurationProperties(AuthzProperties.class)
 public class CacheConfiguration {
+
+    /**
+     * Creates the cache auto-configuration.
+     */
+    public CacheConfiguration() {
+    }
 
     @Bean
     @ConditionalOnMissingBean

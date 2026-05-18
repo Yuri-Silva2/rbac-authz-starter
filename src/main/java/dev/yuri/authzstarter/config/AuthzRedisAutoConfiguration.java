@@ -13,6 +13,9 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.time.Clock;
 
+/**
+ * Auto-configuration for Redis-backed tenant permission versions.
+ */
 @AutoConfiguration(before = AuthzAutoConfiguration.class)
 @EnableConfigurationProperties(AuthzProperties.class)
 @ConditionalOnClass(StringRedisTemplate.class)
@@ -20,6 +23,20 @@ import java.time.Clock;
 @ConditionalOnProperty(prefix = "authz.redis", name = "enabled", havingValue = "true", matchIfMissing = true)
 public class AuthzRedisAutoConfiguration {
 
+    /**
+     * Creates the Redis auto-configuration.
+     */
+    public AuthzRedisAutoConfiguration() {
+    }
+
+    /**
+     * Creates the Redis-backed tenant permission version provider.
+     *
+     * @param redis Redis template used to read tenant version keys
+     * @param authzClock clock used for refresh interval checks
+     * @param properties authorization starter properties
+     * @return Redis-backed tenant permission version provider
+     */
     @Bean
     @ConditionalOnMissingBean
     public TenantPermissionVersionProvider tenantPermissionVersionProvider(

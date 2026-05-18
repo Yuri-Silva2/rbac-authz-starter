@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Redis-backed tenant permission version provider with a small local refresh cache.
+ */
 public class RedisTenantPermissionVersionProvider implements TenantPermissionVersionProvider {
 
     private final StringRedisTemplate redis;
@@ -17,6 +20,14 @@ public class RedisTenantPermissionVersionProvider implements TenantPermissionVer
     private final String versionKeyPrefix;
     private final Map<UUID, Entry> localCache = new ConcurrentHashMap<>();
 
+    /**
+     * Creates a provider that reads tenant permission versions from Redis.
+     *
+     * @param redis Redis template used to read version keys
+     * @param clock clock used to evaluate local refresh intervals
+     * @param refreshInterval interval after which local version entries are refreshed
+     * @param versionKeyPrefix prefix used to compose Redis version keys
+     */
     public RedisTenantPermissionVersionProvider(
             StringRedisTemplate redis,
             Clock clock,

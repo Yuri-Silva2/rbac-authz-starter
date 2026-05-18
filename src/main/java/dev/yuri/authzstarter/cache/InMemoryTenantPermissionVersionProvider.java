@@ -4,9 +4,18 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * In-memory tenant permission version provider.
+ */
 public class InMemoryTenantPermissionVersionProvider implements TenantPermissionVersionProvider {
 
     private final Map<UUID, Long> versions = new ConcurrentHashMap<>();
+
+    /**
+     * Creates an empty in-memory tenant permission version provider.
+     */
+    public InMemoryTenantPermissionVersionProvider() {
+    }
 
     @Override
     public long getTenantVersion(UUID tenantId) {
